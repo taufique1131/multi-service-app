@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: greet-service
+  labels:
+    app: greet-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: greet-service
+  template:
+    metadata:
+      labels:
+        app: greet-service
+    spec:
+      containers:
+        - name: greet-service
+          image: 043309343189.dkr.ecr.ap-south-1.amazonaws.com/greet-service:v1
+          ports:
+            - containerPort: 3000
+
